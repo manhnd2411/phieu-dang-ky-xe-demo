@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phiếu Đăng Ký Sử Dụng Xe Demo</title>
+    <!-- Tích hợp Tailwind CSS để tạo giao diện hiện đại -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tích hợp Font Google Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Sử dụng font Inter làm font chữ mặc định */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Tùy chỉnh màu sắc của radio button và checkbox */
+        .form-radio, .form-checkbox {
+            color: #4f46e5;
+        }
+        .form-radio:focus, .form-checkbox:focus {
+            ring-color: #4f46e5;
+        }
+        /* Tùy chỉnh giao diện cho file input */
+        .file-input-label {
+            cursor: pointer;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            color: #4f46e5;
+            background-color: #eef2ff;
+            border: 1px solid #c7d2fe;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        .file-input-label:hover {
+            background-color: #e0e7ff;
+        }
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Container chính của form -->
+    <div class="w-full max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- Phần header của form -->
+        <div class="bg-indigo-600 p-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-white text-center">PHIẾU ĐĂNG KÝ SỬ DỤNG XE DEMO</h1>
+            <p class="text-indigo-200 text-center mt-2">Vui lòng điền đầy đủ thông tin để đăng ký sử dụng xe. Các mục có dấu <span class="text-red-300">*</span> là bắt buộc.</p>
+        </div>
+
+        <!-- Phần thân của form -->
+        <form id="testDriveForm" class="p-6 md:p-8 space-y-6">
+            
+            <!-- Người đăng ký -->
+            <div class="form-group">
+                <label for="nguoi-dang-ky" class="block text-sm font-medium text-gray-700 mb-2">Người đăng ký <span class="text-red-500">*</span></label>
+                <select id="nguoi-dang-ky" name="nguoi_dang_ky" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out bg-white">
+                    <option value="" disabled selected>-- Chọn người đăng ký --</option>
+                    <option value="Võ Anh Tài">Võ Anh Tài </option>
+                    <option value="Trần Quang Bình">Trần Quang Bình</option>
+                    <option value="Lâm Hồ Thúy Vy">Lâm Hồ Thúy Vy</option>
+                    <option value="Trần Thanh Tuấn">Trần Thanh Tuấn</option>
+                    <option value="Lý Quỳnh Anh">Lý Quỳnh Anh</option>
+                    <option value="Bùi Minh Tiền">Bùi Minh Tiền</option>
+                    <option value="Phùng Hoàng Khanh">Phùng Hoàng Khanh</option>
+                    <option value="Huỳnh Thị Quỳnh Anh">Huỳnh Thị Quỳnh Anh</option>
+                    <option value="Lại Huỳnh Long">Lại Huỳnh Long</option>
+                    <option value="Vũ Nguyễn Thùy Dương">Vũ Nguyễn Thùy Dương</option>
+                    <option value="Huỳnh Thanh Lộc">Huỳnh Thanh Lộc</option>
+                    <option value="Trần Phi Long">Trần Phi Long</option>
+                    <option value="Vỏ Đinh Quốc Hòa">Vỏ Đinh Quốc Hòa</option>
+                    <option value="Ngô Gia Minh">Ngô Gia Minh</option>
+                    <option value="Nguyễn Thanh Tuyền">Nguyễn Thanh Tuyền</option>
+                    <option value="Cao Thị Mỹ Hạnh">Cao Thị Mỹ Hạnh</option>
+                </select>
+            </div>
+
+            <!-- Loại xe -->
+            <div class="form-group">
+                <label for="loai-xe" class="block text-sm font-medium text-gray-700 mb-2">Loại xe <span class="text-red-500">*</span></label>
+                <select id="loai-xe" name="loai_xe" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out bg-white">
+                    <option value="" disabled selected>-- Chọn loại xe --</option>
+                    <option value="PMH - BMW-X3-30i-Msport 51K-560.09">PMH - BMW-X3-30i-Msport 51K-560.09</option>
+                    <option value="PMH - BMW-520i 51K-564.81">PMH - BMW-520i 51K-564.81</option>
+                    <option value="PMH - BMW-X5-XDRIVE40I-Msport 51K-561.32">PMH - BMW-X5-XDRIVE40I-Msport 51K-561.32</option>
+                    <option value="PMH - BMW 530 MSP 51K-677.14">PMH - BMW 530 MSP 51K-677.14</option>
+                    <option value="PMH - BMW-320i-Sportline-LCI 51K-678.14">PMH - BMW-320i-Sportline-LCI 51K-678.14</option>
+                    <option value="PMH - BMW X7 xDrive40i PE 92A-369.21">PMH - BMW X7 xDrive40i PE 92A-369.21</option>
+                    <option value="SALA - BMW-X3-30i-Msport 51K-575.04">SALA - BMW-X3-30i-Msport 51K-575.04</option>
+                    <option value="SALA - BMW-X5-XDRIVE40I-Xline 51K-576.91">SALA - BMW-X5-XDRIVE40I-Xline 51K-576.91</option>
+                    <option value="SALA - BMW-520i 51K-661.83">SALA - BMW-520i 51K-661.83</option>
+                    <option value="SALA - BMW-330i-Msport-LCI 51K-702.89">SALA - BMW-330i-Msport-LCI 51K-702.89</option>
+                    <option value="SALA - BMW 740i PE 92A-339.52">SALA - BMW 740i PE 92A-339.52</option>
+                    <option value="SALA - BMW-X5-MSP-LCI 51L-728.54">SALA - BMW-X5-MSP-LCI 51L-728.54</option>
+                    <option value="SALA - BMW X6 x40i MSP 92A-355.74">SALA - BMW X6 x40i MSP 92A-355.74</option>
+                    <option value="SALA - BMW Z4 43A-607.71">SALA - BMW Z4 43A-607.71</option>
+                    <option value="SALA - BMW i4 eDrive40 92A-369.48">SALA - BMW i4 eDrive40 92A-369.48</option>
+                    <option value="SALA - BMW iX3 92A-379.09">SALA - BMW iX3 92A-379.09</option>
+                    <option value="NVT - BMW-X3-20i-Msport 51K-582.39">NVT - BMW-X3-20i-Msport 51K-582.39</option>
+                    <option value="NVT - BMW-520i M Sport LCI 51K-586.81">NVT - BMW-520i M Sport LCI 51K-586.81</option>
+                    <option value="NVT - BMW-320i-Sportline-LCI 51K-708.33">NVT - BMW-320i-Sportline-LCI 51K-708.33</option>
+                    <option value="NVT - BMW X5 Xline LCI 92A-355.63">NVT - BMW X5 Xline LCI 92A-355.63</option>
+                    <option value="BT - BMW 520 MSP 51L-432.74">BT - BMW 520 MSP 51L-432.74</option>
+                    <option value="BT - BMW-X3-30i-Msport 51L-457.61">BT - BMW-X3-30i-Msport 51L-457.61</option>
+                    <option value="BT - BMW-330i-Msport-LCI 51L-462.47">BT - BMW-330i-Msport-LCI 51L-462.47</option>
+                    <option value="BT - BMW X4 X20I MSP 92A-360.59">BT - BMW X4 X20I MSP 92A-360.59</option>
+                </select>
+            </div>
+
+            <!-- Mục đích sử dụng -->
+            <div class="form-group">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Mục đích sử dụng <span class="text-red-500">*</span></label>
+                <div class="space-y-2 mt-2">
+                    <div class="flex items-center">
+                        <input type="radio" id="muc-dich-showroom" name="muc_dich" value="Lái thử tại Showroom" required class="form-radio h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="muc-dich-showroom" class="ml-3 block text-sm text-gray-900">Lái thử tại Showroom</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="muc-dich-khach" name="muc_dich" value="Lái thử tại địa chỉ khách cung cấp" class="form-radio h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="muc-dich-khach" class="ml-3 block text-sm text-gray-900">Lái thử tại địa chỉ khách cung cấp</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tên khách hàng -->
+            <div class="form-group">
+                <label for="ten-khach-hang" class="block text-sm font-medium text-gray-700 mb-2">Tên khách hàng</label>
+                <input type="text" id="ten-khach-hang" name="ten_khach_hang" placeholder="Câu trả lời của bạn" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out">
+            </div>
+
+            <!-- Thời gian sử dụng -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                    <label for="ngay-su-dung" class="block text-sm font-medium text-gray-700 mb-2">Ngày sử dụng</label>
+                    <input type="date" id="ngay-su-dung" name="ngay_su_dung" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out">
+                </div>
+                <div class="form-group">
+                    <label for="gio-su-dung" class="block text-sm font-medium text-gray-700 mb-2">Giờ sử dụng</label>
+                    <input type="time" id="gio-su-dung" name="gio_su_dung" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out">
+                </div>
+            </div>
+
+            <!-- Nơi đến / Địa chỉ -->
+            <div class="form-group">
+                <label for="dia-chi" class="block text-sm font-medium text-gray-700 mb-2">Nơi đến / Địa chỉ</label>
+                <textarea id="dia-chi" name="dia_chi" rows="3" placeholder="Câu trả lời của bạn" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"></textarea>
+            </div>
+
+            <!-- Số km bắt đầu -->
+            <div class="form-group">
+                <label for="so-km" class="block text-sm font-medium text-gray-700 mb-2">Số km bắt đầu</label>
+                <input type="number" id="so-km" name="so_km" placeholder="Câu trả lời của bạn" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out">
+            </div>
+
+            <!-- Ảnh chụp bằng lái xe -->
+            <div class="form-group">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Ảnh chụp bằng lái xe</label>
+                <div class="mt-1 flex items-center">
+                    <label for="bang-lai-xe" class="file-input-label">
+                        <span>Thêm tệp</span>
+                        <input type="file" id="bang-lai-xe" name="bang_lai_xe" accept="image/*">
+                    </label>
+                    <span id="fileName" class="ml-3 text-sm text-gray-500">Chưa có tệp nào được chọn</span>
+                </div>
+            </div>
+
+            <!-- Nút Gửi -->
+            <div class="pt-4">
+                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                    Gửi
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal thông báo thành công -->
+    <div id="successModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                    <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mt-2">Đăng Ký Thành Công!</h3>
+                <div class="mt-2 px-7 py-3">
+                    <p class="text-sm text-gray-500">
+                        Cảm ơn bạn đã gửi thông tin. Chúng tôi sẽ xử lý yêu cầu của bạn.
+                    </p>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <button id="closeModal" class="px-4 py-2 bg-indigo-600 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('testDriveForm');
+        const successModal = document.getElementById('successModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const fileInput = document.getElementById('bang-lai-xe');
+        const fileNameSpan = document.getElementById('fileName');
+
+        // Hiển thị tên tệp đã chọn
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                fileNameSpan.textContent = fileInput.files[0].name;
+            } else {
+                fileNameSpan.textContent = 'Chưa có tệp nào được chọn';
+            }
+        });
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            // Đối với file, bạn cần xử lý riêng
+            data.bang_lai_xe = formData.get('bang_lai_xe');
+            
+            console.log('Dữ liệu form đã gửi:', data);
+
+            successModal.classList.remove('hidden');
+        });
+
+        function resetForm() {
+            form.reset();
+            fileNameSpan.textContent = 'Chưa có tệp nào được chọn';
+        }
+
+        closeModalButton.addEventListener('click', function() {
+            successModal.classList.add('hidden');
+            resetForm();
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == successModal) {
+                successModal.classList.add('hidden');
+                resetForm();
+            }
+        });
+    </script>
+</body>
+</html>
+
